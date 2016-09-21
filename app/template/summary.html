@@ -1,0 +1,68 @@
+<div class='small-12 main small-central'>
+  <div class='row small-12'>
+    <h3>Data Summary</h3>
+    <p>This page contains a summary of the top 10 employees in the dataset, ranked by messages sent/recieved and employee centrality</p><br>
+  </div>
+
+  <div class='row columns'>
+    <div class='small-12 column large-12'>
+      <h4>Most Messages Sent</h4>
+      <table class='hover small-12' >
+        <thead>
+          <tr>
+            <th>Employee</th>
+            <th>Messages Sent</th>
+            <th>Group</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="#sent of topSent">
+            <td>{{sent.email}}</td>
+            <td><a href="http://{{url}}/#/message-rates/{{sent.id}}">{{sent.sent}}</a></td>
+            <td><a href="http://{{url}}/#/group-message-rates/{{sent.community}}">{{sent.community}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class='small-12 column large-12'>
+
+      <h4>Most Messages Recieved</h4>
+      <table class='hover small-12'>
+        <thead>
+          <tr>
+            <th>Employee</th>
+            <th>Messages Recieved</th>
+            <th>Group</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="#recieved of topRecieved">
+            <td>{{recieved.email}}</td>
+            <td><a href="http://{{url}}/#/message-rates/{{recieved.id}}">{{recieved.received}}</a></td>
+            <td><a href="http://{{url}}/#/group-message-rates/{{recieved.community}}">{{recieved.community}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class='small-12 column large-12 '>
+      <h4>Most Central</h4>
+      <table class='hover small-12'>
+        <thead>
+          <tr>
+            <th>Employee</th>
+            <th>Centrality</th>
+            <th>Group</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="#central of topCentral">
+            <td>{{central.email}}</td>
+            <td><a href="http://{{url}}/#/message-rates/{{central.id}}">{{central.centrality}}</a></td>
+            <td><a href="http://{{url}}/#/group-message-rates/{{central.community}}">{{central.community}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

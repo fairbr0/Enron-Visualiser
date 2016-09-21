@@ -1,0 +1,72 @@
+<html>
+
+  <head>
+    <base href="/">
+    <title>Enron</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      if (!Object.hasOwnProperty('name')) {
+        Object.defineProperty(Function.prototype, 'name', {
+          get: function() {
+            var matches = this.toString().match(/^\s*function\s*(\S*)\s*\(/);
+            var name = matches && matches.length > 1 ? matches[1] : "";
+            Object.defineProperty(this, 'name', {value: name});
+            return name;
+          }
+        });
+      }
+    </script>
+    <script src="js/es6-shim/es6-shim.min.js"></script>
+    <script src="js/systemjs/dist/system-polyfills.js"></script>
+    <script src="js/Chart.js"></script>
+
+    <script src="js/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="js/systemjs/dist/system.src.js"></script>
+    <script src="js/rxjs/bundles/Rx.js"></script>
+    <script src="js/angular2/bundles/angular2.dev.js"></script>
+    <script src="js/angular2/bundles/router.dev.js"></script>
+    <script src="js/angular2/bundles/http.dev.js"></script>
+    <script src="js/legend.js"></script>
+
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src='js/foundation.min.js'></script>
+    <script src='js/foundation-datepicker.js'></script>
+
+    <script src='js/cytoscape/dist/cytoscape.js'></script>
+    <script src='js/spin.js'></script>
+    <link href="css/foundation.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <link href='cdd/foundation-datepicker.css'>
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          },
+          paths: {
+            'rxjs/add/observable/*' : 'js/rxjs/add/observable/*.js',
+            'rxjs/add/operator/*' : 'js/rxjs/add/operator/*.js',
+            'rxjs/*' : 'js/rxjs/*.js'
+          },
+          map: {
+            rxjs: 'js/rxjs'
+          }
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+
+  </head>
+
+  <!-- 3. Display the application -->
+  <body>
+    <div class='small-12'>
+      <enron>Please Enable Javascript</enron>
+    </div>
+  </body>
+
+</html>

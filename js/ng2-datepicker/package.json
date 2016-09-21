@@ -1,0 +1,97 @@
+{
+  "_args": [
+    [
+      "ng2-datepicker",
+      "/Users/Jake/Sites/enron/CS261/src/main/resources/static"
+    ]
+  ],
+  "_from": "ng2-datepicker@*",
+  "_id": "ng2-datepicker@0.6.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/ng2-datepicker",
+  "_nodeVersion": "5.4.1",
+  "_npmOperationalInternal": {
+    "host": "packages-6-west.internal.npmjs.com",
+    "tmp": "tmp/ng2-datepicker-0.6.2.tgz_1454833012700_0.7249297823291272"
+  },
+  "_npmUser": {
+    "email": "jkuri88@gmail.com",
+    "name": "jkuri"
+  },
+  "_npmVersion": "3.7.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "ng2-datepicker",
+    "raw": "ng2-datepicker",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/ng2-datepicker/-/ng2-datepicker-0.6.2.tgz",
+  "_shasum": "d67423d1fc371ca519d0f5672137390a966b7e59",
+  "_shrinkwrap": null,
+  "_spec": "ng2-datepicker",
+  "_where": "/Users/Jake/Sites/enron/CS261/src/main/resources/static",
+  "author": {
+    "email": "jkuri88@gmail.com",
+    "name": "Jan Kuri"
+  },
+  "bugs": {
+    "url": "https://github.com/jkuri/ng2-datepicker/issues"
+  },
+  "dependencies": {
+    "moment": "^2.11.2"
+  },
+  "description": "Angular2 Datepicker",
+  "devDependencies": {
+    "angular2": "^2.0.0-beta.0",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "systemjs": "^0.19.4",
+    "systemjs-builder": "^0.15.7",
+    "tsd": "^0.6.5",
+    "typescript": "^1.7.5",
+    "zone.js": "0.5.10"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "d67423d1fc371ca519d0f5672137390a966b7e59",
+    "tarball": "http://registry.npmjs.org/ng2-datepicker/-/ng2-datepicker-0.6.2.tgz"
+  },
+  "gitHead": "63a4eeda7643a178c863a8cd2f6d75f01af9b54a",
+  "homepage": "https://github.com/jkuri/ng2-datepicker#readme",
+  "keywords": [
+    "angular",
+    "angular2",
+    "date",
+    "datepicker",
+    "directive"
+  ],
+  "license": "MIT",
+  "main": "ng2-datepicker.js",
+  "maintainers": [
+    {
+      "name": "jkuri",
+      "email": "jkuri88@gmail.com"
+    }
+  ],
+  "name": "ng2-datepicker",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkuri/ng2-datepicker.git"
+  },
+  "scripts": {
+    "prepublish": "tsc && tsc -d && tsd install && node make.js"
+  },
+  "typings": "./ng2-datepicker.d.ts",
+  "version": "0.6.2"
+}

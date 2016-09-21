@@ -1,0 +1,57 @@
+<div class='medium-12 large-9 column box_a'>
+  <div id="graph-spin" style='height:100%;' hidden><p class='spinText'>Loading Employee Message Rates<p></div>
+  <chart [employee]='selectedEmployee' [checkboxes]='checkboxes'></chart>
+</div>
+<div class='medium-12 large-3 column box_b'>
+  <h3>Employee Message Rates</h3>
+
+  <h4>Time Window</h4>
+  <div id='fromDatePicker' style='width:187px'>
+    <my-date-picker [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event, 'fromPicker')" [selDate]="fromDateString"></my-date-picker>
+  </div>
+  <br>
+  <div id='toDatePicker' style='width:187px'>
+    <my-date-picker [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event, 'toPicker')" [selDate]="toDateString"></my-date-picker>
+  </div>
+  <br>
+  <p style='font-size:0.8em'>Date must be between 01/08/1999 and 31/07/2002</p>
+  <div class='medium-6 large-12'>
+    <div class="input-group">
+      <span class="input-group-label">Period</span>
+      <select class="input-group-field period-select-field" id='periodDropdown' [ngModel]='selectedPeriod' (change)="changeValue($event.target.value)">
+        <option *ngFor='#period of periods' value="{{period.period}}:{{period.amount}}">{{period.string}}</option>
+      </select>
+      <div class='input-group-button'>
+        <button class='button' (click)="refreshTime()" id='refreshButton' disabled>Update</button>
+      </div>
+    </div>
+    <label style='color:#444'>Search Employee
+    <div class="input-group">
+      <input class="input-group-field" type='text' id='employeeSearchBar' (keyup)="searchEmployees()" [(ngModel)]="emailString" placeholder="phil.davis@enron.com">
+      <div class="input-group-button">
+        <button (click)="searchEmployees()" class='button'>Search</button>
+      </div>
+    </div></label>
+    <label style='color:#444'>Select Employee
+    <div class="input-group">
+      <select class="input-group-field" id='employeeDropdown'>
+        <option *ngFor='#employee of employees'
+          value="{{employee.id}}" >{{employee.email}}</option>
+      </select>
+      <div class="input-group-button" >
+        <button (click)="getEmployee()" id='selectEmployee' class='button'>Select</button>
+      </div>
+    </div></label>
+  </div>
+  <employee-detail [employee]='selectedEmployee'></employee-detail>
+  <div class='medium-6 large-12'>
+    <form>
+      <fieldset class="fieldset">
+        <legend>Chart Options</legend>
+        <input id="checkboxSent" type="checkbox" [(ngModel)]="checkboxes[0]" [checked]=true (change)="onChange($event)"><label for="checkboxSent">Sent Messages</label><br>
+        <input id="checkboxRecieved" type="checkbox" [(ngModel)]="checkboxes[1]" [checked]=true (change)="onChange($event)"><label for="checkboxRecieved">Recieved Messages</label><br>
+        <input id="checkboxAverage" type="checkbox" [(ngModel)]="checkboxes[2]" [checked]=true (change)="onChange($event)"><label for="checkboxAverage">Average Messages</label><br>
+      </fieldset>
+    </form>
+  </div>
+</div>

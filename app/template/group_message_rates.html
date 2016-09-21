@@ -1,0 +1,43 @@
+<div class='medium-12 large-9 column box_a'>
+  <div id="graph-spin" style='height:100%;' hidden><p class='spinText'>Loading Group Message Rates<p></div>
+  <chart [group]='selectedGroupMessages' [employee]='employeeToDisplay'></chart>
+</div>
+<div class='medium-12 large-3 column box_b' (window:resize)="onResize($event)">
+  <h3>Group Message Rates</h3>
+
+  <h4>Time Window</h4>
+  <div id='fromDatePicker' style='width:187px'>
+    <my-date-picker [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event, 'fromPicker')" [selDate]="fromDateString"></my-date-picker>
+  </div>
+  <br>
+  <div id='toDatePicker' style='width:187px'>
+    <my-date-picker [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event, 'toPicker')" [selDate]="toDateString"></my-date-picker>
+  </div>
+  <p style='font-size:0.8em'>Date must be between 01/08/1999 and 31/07/2002</p>
+
+  <div class='small-12 medium-6 large-12'>
+    <div class='input-group'>
+      <span class='input-group-label'>Period</span>
+      <select class="input-group-field period-select-field" id='periodDropdown' [(ngModel)]='selectedPeriod' (change)="changeValue($event.target.value)">
+        <option *ngFor='#period of periods'
+          value="{{period.period}}:{{period.amount}}">{{period.string}}</option>
+      </select>
+      <div class='input-group-button'>
+        <button class='button' (click)="refreshTime()" id='refreshButton' disabled>Refresh</button>
+      </div>
+    </div>
+    <p style='font-size:0.8em'>Period is the time between data points displayed on the chart.</p>
+    <h4>Group</h4>
+      <label style='color:#444'>Select Group
+      <div class="input-group">
+        <select class="input-group-field" id='groupDropdown'>
+          <option *ngFor='#group of groups'
+            value="{{group.id}}">{{group.name}}</option>
+        </select>
+        <div class="input-group-button">
+          <button id='selectGroup' (click)="getGroup()" class='button'>Select</button>
+        </div>
+      </div> </label>
+  </div>
+  <group-detail [group]='selectedGroup' [employees]='employees' [groupMessages]='selectedGroupMessages' (employeeToDisplay)='displayEmployee($event.results)'></group-detail>
+</div>
